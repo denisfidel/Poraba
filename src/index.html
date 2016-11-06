@@ -1,27 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Poraba</title>
+	<title>Poraba - Domov</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<meta charset="utf-8">
 </head>
 <body>
 	<header>
-		<img src="" alt="LOGO" style="height: 90px; width: 90px;">
+		<div class="logo">
+			<img src="" alt="LOGO" style="height: 90px; width: 90px;">
+		</div>
+		<div class="prijava">
 			<p align="right">
-				Prijavi se:
+				Prijava:<br>
 			</p>
 			<form action>
 				<p align="right">
 					<label>
-						Uporabniško ime:<input type="text" name="username" size="30" maxlength="30">
+						<input type="text" name="username" placeholder="uporabnisko ime ali email" size="30" maxlength="30">
 					</label>
 					<label>
-						Geslo:<input type="password" name="password" size="15" maxlength="30">
+						<input type="password" name="password" placeholder="geslo" size="15" maxlength="30">
 					</label>
 				</p>
 			</form>
 			<p align="right">
-				<a href="login.html" align="right"> Registriraj se</a>
+				<a href="geslo.html"> Pozabljeno geslo?</a><br>
+				Nimaš računa?
+				<a href="login.html"> Registriraj se</a>
 			</p>
+		</div>
+		<div class="clear"></div>
 	</header>
 
 	<nav>
@@ -32,12 +41,66 @@
 			<a href="about.html">O NAS</a>
 		</p>
 	</nav>
-
-	<aside>
-		<input type="text" name="search" placeholder="Search..">
-	</aside>
-
+	<div class="sidebar">
+		<aside>
+			<input type="text" name="search" placeholder="Iskanje..">
+			<h1>Predlogi:</h1>
+		</aside>
+	</div>
+	<div class="zapisi">
+		<h1>Izpis zapisov</h1>		
+		
+		<div class="zapis">
+			<div class="zapis_slika">
+				<img src="", alt="avtomobil", style="height:90px; width: 90px;">
+			</div>
+			<div class="zapis_podatki">
+				<p>	
+					Znamka: ...<br>
+					Model: ..<br>
+					Letnik: ...  Poraba: ...<br>
+				</p>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div class="zapis">
+			<div class="zapis_slika">
+				<img src="", alt="avtomobil", style="height:90px; width: 90px;">
+			</div>
+			<div class="zapis_podatki">
+				<p>	
+					Znamka: ...<br>
+					Model: ..<br>
+					Letnik: ...  Poraba: ...<br>
+				</p>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div class="zapis">
+			<div class="zapis_slika">
+				<img src="", alt="avtomobil", style="height:90px; width: 90px;">
+			</div>
+			<div class="zapis_podatki">
+				<p>	
+					Znamka: ...<br>
+					Model: ..<br>
+					Letnik: ...  Poraba: ...<br>
+				</p>
+			</div>
+			<div class="clear"></div>
+		</div>	
+	</div>
+	<div class="clear"></div>
+	
 	<footer>
+		<div class="avtor">
+			<p>
+				Avtor:
+				Denis Fidel
+				Kontakt: denis.fidel12@gmail.com
+
+			</p>
+		</div>
 		
 	</footer>
 	</body>

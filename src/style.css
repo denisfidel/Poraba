@@ -1,0 +1,33 @@
+.logo {
+	float: left;
+}
+.prijava {
+	float: right;
+	line-height: 90%;
+}
+.sidebar{
+	float: left;
+	vertical-align: top;
+}
+.zapisi {
+	display: inline-block;
+	vertical-align: top;
+}
+.clear {
+	clear:both;
+}
+.zapisi .zapis .zapis_slika {
+	display: inline-block;
+	vertical-align: top;
+}
+.zapisi .zapis .zapis_podatki {
+	display: inline-block;
+	vertical-align: top;
+}
+footer {
+	font-size: 70%;
+	color: rgb(191, 191, 191);
+	background: fixed;
+	background-color: rgb(77, 77, 77);
+	
+}
