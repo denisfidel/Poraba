@@ -2,36 +2,48 @@
 <html>
 <head>
 	<title>About</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-	<header>
-		<img src="" alt="LOGO" style="height: 90px; width: 90px;">
-			<p align="right">
-				Prijavi se:
-			</p>
-			<form action>
-				<p align="right">
-					<label>
-						Uporabniško ime:<input type="text" name="username" size="30" maxlength="30">
-					</label>
-					<label>
-						Geslo:<input type="password" name="password" size="15" maxlength="30">
-					</label>
-				</p>
-			</form>
-			<p align="right">
-				<a href="login.html" align="right"> Registriraj se</a>
-			</p>
+	<header class="centered-content">
+		<img src="logo-car.jpg" alt="LOGO"x>
+		<div class="prijava">
+			<button type="button" onclick="location.href='login.html'">Registriraj se</button>
+			<button type="button" onclick="location.href='geslo.html'">Pozabljeno geslo</button>
+			
+			<form>
+					<label>E-mail: <input type="email" name="email" placeholder="primir@domena.si" required></label>
+					<label>Geslo: <input type="password" name="password"  size="15" maxlength="30"></label>
+					<label><input type="submit" name="potrdi_prijavo" value="Vpiši me"></input></label>
+			</form>		
+			
+			
+		</div> 
+		
 	</header>
+	<div class="centered-content">
+		<nav >
+			<!--<ul>
+				<li><a href="index.html">DOMOV</a></li>  
+				<li><a href="calc.html">KALKULATOR</a></li> 
+				<li><a href="map.html">ZEMLJEVID</a></li> 
+				<li><a href="about.html">O NAS</a></li>
+			</ul>-->
 
-	<nav>
-		<p align="middle">
-			<a href="index.html">DOMOV</a> | 
-			<a href="calc.html">KALKULATOR</a> |
-			<a href="map.html">ZEMLJEVID</a> |
-			<a href="about.html">O NAS</a>
-		</p>
-	</nav>
-	<
+			<button type="button" onclick="location.href='index.html'">Domov</button>
+			<button type="button" onclick="location.href='calc.html'">Kalkulator</button>
+			<button type="button" onclick="location.href='map.html'">Zemljevid</button>
+			<button type="button" onclick="location.href='about.html'">O nas</button>
+		</nav>
+		<section>
+			
+		</section>
+	</div>
+
+	<footer class="centered-content">
+		Avtor: Denis Fidel<br>
+		Kontakt: denis.fidel12@gmail.com
+
+	</footer>
 </body>
 </html>

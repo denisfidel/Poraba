@@ -2,10 +2,44 @@
 <html>
 <head>
 	<title>Calculator</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<meta charset="utf-8">
 </head>
 <body>
-	<p>
-		TO-DO
-	</p>
+	<header class="centered-content">
+		<img src="logo-car.jpg" alt="LOGO"x>
+		<div class="prijava">
+			<button type="button" onclick="location.href='login.html'">Registriraj se</button>
+			<button type="button" onclick="location.href='geslo.html'">Pozabljeno geslo</button>
+			
+			<form>
+					<label>E-mail: <input type="email" name="email" placeholder="primir@domena.si" required></label>
+					<label>Geslo: <input type="password" name="password"  size="15" maxlength="30"></label>
+					<label><input type="submit" name="potrdi_prijavo" value="Vpiši me"></input></label>
+			</form>		
+			
+			
+		</div> 
+		
+	</header>
+	<div class="centered-content">
+		<nav>
+			<!--<ul>
+				<li><a href="index.html"> <span>Domov</span></a></li>
+				<li><a href="calc.html"> <span>Kalkulator</span></a></li>
+				<li><a href="map.html"> <span>Zemljevid</span></a></li>
+				<li><a href="about.html"> <span>O nas</span></a></li>
+			</ul>-->
+			<button type="button" onclick="location.href='index.html'">Domov</button>
+			<button type="button" onclick="location.href='calc.html'">Kalkulator</button>
+			<button type="button" onclick="location.href='map.html'">Zemljevid</button>
+			<button type="button" onclick="location.href='about.html'">O nas</button>
+		</nav>
+	</div>
+	<footer class="centered-content">
+		Avtor: Denis Fidel<br>
+		Kontakt: denis.fidel12@gmail.com
+
+	</footer>
 </body>
 </html>
