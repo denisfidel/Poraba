@@ -6,31 +6,28 @@
 	<meta charset="utf-8">
 </head>
 <body>
-	<header>
-		<div class="logo">
-			<img src="" alt="LOGO" style="height: 90px; width: 90px;">
-		</div>
-		<div class="clear"></div>
+	<header class="centered-content">
+		<img src="logo-car.jpg" alt="LOGO" style="height: 90px; width: 90px;">
 	</header>
-	<nav>
-		<p align="middle">
-			<a href="index.html">DOMOV</a> | 
-			<a href="calc.html">KALKULATOR</a> |
-			<a href="map.html">ZEMLJEVID</a> |
-			<a href="about.html">O NAS</a>
-		</p>
-	</nav>
-	<form>
-	  <fieldset >
-	    <legend>Pozabljeno geslo:</legend>
-	    	<input type="text" placeholder="vnesite vaš elektronski naslov" >
-	  </fieldset>
-	</form>
-	
+	<div class="centered-content">
+		<nav >
+			<ul>
+				<li onclick="location='index.html'">Domov</li>
+				<li onclick="location='calc.html'">Kalkulator</li>
+				<li onclick="location='map.html'">Zemljevid</li>
+				<li onclick="location='about.html'">O nas</li>
+			</ul>
+		</nav>
+		<form>
+		  <fieldset id="login_form">
+		    <legend>Pozabljeno geslo:</legend>
+		    	<label>Vnesite elektronski naslov: <input type="email" placeholder="primer@domena.si" required></label>
+		  </fieldset>
+		</form>
+	</div>
 	<footer class="centered-content">
 		Avtor: Denis Fidel<br>
 		Kontakt: denis.fidel12@gmail.com
-
 	</footer>
 </body>
 </html>
