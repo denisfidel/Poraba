@@ -3,10 +3,12 @@ Opis:Aplikacija bo namenjena spremljanju dejanske porabe različnih vozil, glede
 Ciljna publika: vsi uporabniki avtomobilov, ki želijo spremljati bolj realistično porabo vozil na trgu<br>
 2 posebna gradnika/zmogljivosti:<br>
 <ul>
-  <li>risanje grafa(bolj natančno ko bodo enkrat točni podatki znani)
-  <li>vnos zmeljevida
+  <li>risanje grafa(bolj natančno ko bodo enkrat točni podatki znani)</li>
+  <li>vnos zmeljevida</li>
 </ul>
-Problemi, ki jih je še potrebno rešiti:
-  -izračun porabe/stroškov
-  -izris grafa
-  
+<br>
+Problemi, ki jih je še potrebno rešiti:<br>
+<ul>
+  <li>izračun porabe/stroškov</li>
+  <li>izris grafa</li>
+</ul>  
