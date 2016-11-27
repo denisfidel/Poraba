@@ -20,13 +20,13 @@ aside {
 	width: 25%;
 	clear: both;
 	margin-top: 10px;
+	padding: 10px;
+}
+aside input {
+	width: 100%;
 }
 .zapisi {
 	width: 75%;
-}
-.zapisi h1 {
-	margin-top: 10px;
-	margin-bottom: 5px;
 }
 
 .centered-content {
@@ -36,7 +36,9 @@ aside {
 }
 #main {
 	display: flex;
-	flex-grow: 1;
+	min-height:100vh;
+	background-color: white;
+	padding: 20px;
 }
 footer {
 	clear: both;
@@ -50,34 +52,20 @@ footer {
 	padding-bottom: 10px;
 	
 }
-.zapisi .zapis {
-	clear: both;
-}
-.zapisi .zapis .zapis_podatki {
-	float: left;
- 	font-size: 12px;
-    float: left;
-    width: 80%;
-    padding-left: 20px;
-}
-.zapisi .zapis img {
-	float: left;
-}
 
-.zapis_podatki {
-	border-bottom: 1px solid grey;
-
+#login_form {
+	width: 100%;
 }
-
-form #login_form {
+#login_form fieldset {
 	width: 50%;
-	margin: auto;
+	display: flex;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 50px;
 }
-
-form #login_form label {
-	float: left;
-	clear: both;
-	padding: 0.1em;
+#login_form label,
+aside form input {
+	margin: 0.1em;
 }
 header {
 	background-color: rgb(77, 184, 255);
@@ -90,13 +78,14 @@ nav {
 header button {
 	border-bottom-left-radius: 8px;
 	border-bottom-right-radius: 8px;
-	border-bottom: 0;
+	border-top: 0;
 	background-color: rgb(0, 107, 179);
 	border-color: rgb(0, 77, 128);
+	color: white;
 }
 body {
 	margin: 0;
-
+	background-color:rgb(230, 230, 230);
 }
 header img {
 	width: 100px;
@@ -109,7 +98,6 @@ header img:hover {
 
 nav ul {
 	margin:0px;
-	webkit-start:0px;
 	display: inline-flex;
 	position: relative;
 	list-style: none;
@@ -153,4 +141,121 @@ nav ul li {
     text-transform: uppercase;
     font-size: 20px;
     font-weight: bold;
+}
+#popup form {
+	text-align: center;
+	margin-top: 50px;
+}
+#popup div{
+	margin: 5px;
+}
+.zapisi table,
+.vozila table,
+.comments table{
+	width: 100%;
+	border-spacing: 0;
+}
+.zapisi img,
+.vozila img {
+	width: 200px;
+	height: 120px;
+}
+.comments img {
+	width: 90px;
+	height: 90px;
+}
+.zapisi img:hover,
+.vozila img:hover{
+	transform: scale(1.1);	
+	transition: transform .25s ease;
+}
+.zapisi caption,
+.vozila caption,
+.graf_porabe h2,
+.comments caption{
+	padding: 10px;
+	letter-spacing: 2px;
+	word-spacing: 10px;
+	font-size: 24px;
+	font-weight: 900; 
+	text-shadow: 2px 2px 5px grey;
+}
+.zapisi tbody td,
+.vozila tbody td,
+.comments tbody td {
+	padding:10px;
+}
+.zapisi tbody tr:nth-child(odd),
+.vozila tbody tr:nth-child(odd),
+.comments tbody tr:nth-child(odd) {
+	background: rgb(179, 179, 179);
+}
+
+.zapisi tbody tr:nth-child(even),
+.vozila tbody tr:nth-child(even),
+.comments tbody tr:nth-child(even) {
+	background: white
+}
+#paging  {
+	display: inline-block;
+}
+#paging li {
+	display: inline;
+}
+#glavna {
+	width: 300px;
+}
+.izdelek,
+.profil {
+	width: 95%;
+	margin: 20px;
+}
+.izdelek_podatki,
+.profil_podatki {
+	display: flex;
+}
+.izdelek h1,
+.profil h1 {
+	letter-spacing: 2px;
+	word-spacing: 10px;
+	font-size: 24px;
+	font-weight: 900; 
+	text-shadow: 2px 2px 5px grey;
+}
+#izd1 {
+	width: 40%;
+}
+
+#izd2 {
+	width: 50%;
+}
+
+#izd3 {
+	width: 10%;
+}
+#map {
+	height: 500px;
+	width: 100%;
+	margin: 20px;
+}
+aside form {
+	margin: 5px;
+}
+#main button,
+#main input[type="submit"] {	
+	border-bottom-left-radius: 8px;
+	border-bottom-right-radius: 8px;
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
+	background-color: rgb(0, 107, 179);
+	border-color: rgb(0, 77, 128);
+	color: white;
+}
+.consump_calc fieldset {
+	height: auto;
+}
+#graf {
+	border:1px solid #000000;
+	width: 600px;
+	height: 300px;
 }

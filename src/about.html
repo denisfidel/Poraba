@@ -1,31 +1,48 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>About</title>
+	<title>Poraba - O nas</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
+	<meta charset="utf-8">
 </head>
 <body>
 	<header>
 		<a href="index.html"><img src="logo-car.jpg" alt="LOGO" ></a>
 		<div class="prijava">
-			<button type="button" onclick="location.href='login.html'">Registriraj se</button>
-			<button type="button" onclick="location.href='geslo.html'">Pozabljeno geslo</button>
-			<button type="button" onclick="location.href='#popup'">Prijava</button>	
+			<button onclick="location.href='login.html'">Registriraj se</button>
+			<button onclick="location.href='#popup'">Prijava</button>
+			<button onclick="location.href='profile.html'">Moj profil</button>
 		</div>				
 	</header>
 	
 	<nav >
 		<ul>
 			<li onclick="location='index.html'">Domov</li>
-			<li onclick="location='calc.html'">Kalkulator</li>
 			<li onclick="location='map.html'">Zemljevid</li>
 			<li onclick="location='about.html'">O nas</li>
 		</ul>
 	</nav>
-	<div class="centered-content">
-		<section >
+	<div class="centered-content" id="main">
+		<div id="popup">
+				<p>Prijava</p>
+				<form>
+					<div>
+						<label>E-mail: <input type="email" name="email" placeholder="primer@domena.si"/></label>
+					</div>
+					<div>
+						<label>Geslo: <input type="password" name="password"  size="15" maxlength="30" /></label>
+					</div>
+					<div>
+						<label><input type="submit" name="potrdi_prijavo" value="Vpiši me" /></label>
+						<button onclick="location.href='#'">Prekliči</button>
+						<button id="poz_geslo">Pozabljeno geslo</button>
+					</div>
+				</form>			
+		</div>
+		<section>
+			<h1>O podjetju</h1>
 			<article>
-				<h1>Kontakt</h1>
+				<h2>Kontakt</h2>
 				<p>
 					Naziv: Podjetje d.o.o.<br>
 					Naslov: <br>

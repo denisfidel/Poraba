@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Poraba - Moj Profil</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<meta charset="utf-8">
+	<script type="text/javascript" src="narisi.js" defer></script>
+</head>
+<body>
+	<header>
+		<a href="index.html"><img src="logo-car.jpg" alt="LOGO" ></a>
+		<div class="prijava">
+			<button onclick="location.href='login.html'">Registriraj se</button>
+			<button onclick="location.href='#popup'">Prijava</button>
+			<button onclick="location.href='profile.html'">Moj profil</button>
+		</div>				
+	</header>
+
+	<nav>
+		<ul>
+			<li onclick="location='index.html'">Domov</li>
+			<li onclick="location='map.html'">Zemljevid</li>
+			<li onclick="location='about.html'">O nas</li>
+		</ul>		
+	</nav>
+
+	<div class="centered-content" id="main">
+		<div id="popup">
+				<p>Prijava</p>
+				<form>
+					<div>
+						<label>E-mail: <input type="email" name="email" placeholder="primer@domena.si"/></label>
+					</div>
+					<div>
+						<label>Geslo: <input type="password" name="password"  size="15" maxlength="30" /></label>
+					</div>
+					<div>
+						<label><input type="submit" name="potrdi_prijavo" value="Vpiši me" /></label>
+						<button onclick="location.href='#'">Prekliči</button>
+						<button id="poz_geslo">Pozabljeno geslo</button>
+					</div>
+				</form>			
+		</div> 
+		<section style="width: 100%;" class="profil">
+			<h1>Janez Novak</h1>
+			<article >
+				<div class="profil_podatki">
+					<div id="izd1">	
+						<img src="profile.png" alt="avtomobil" id="glavna">
+					</div>
+					<div id="izd2">
+						<h2 >Podatki</h2>
+						<p>
+							Ime: Janez<br>
+							Priimek: Novak<br>
+							Datum rojstva: 1.1.1995<br>
+							<br>
+							Kontakti: <br>
+							Telefonska številka: 031 000 000<br>
+							Elektronski naslov: janez.novak@mail.com
+
+						</p>
+					</div>
+					<div id="izd3">
+						<h2>Šrtevilo vozil:</h2>
+						<p>
+							2
+						</p>
+					</div>
+				</div>
+				
+			</article>
+			<article class="graf_porabe">
+				<h2>Graf porabe</h2>
+				<canvas id="graf">
+					
+				</canvas>
+			</article>
+			<div class="vozila">
+
+				<table>
+					<caption>Moja vozila</caption>
+					<thead>
+						<tr>
+							<th></th>
+							<th>Podatki</th>
+							<th>Poraba<br>(L/100km)</th>
+							<th>Ocena<br>[1,..,10]</th>
+						</tr>
+					</thead>
+					<tfoot>
+						<tr>
+							<td></td>
+							<td>
+								<ul id="paging">
+									<li><a href="#">Prejšnja</a></li>
+									<li><a href="#">Naslednja</a></li>
+								</ul>
+							</td>
+							<td></td>
+							<td></td>
+						</tr>
+					</tfoot>
+					<tbody>
+						<tr>
+							<td><a href="izdelek.html"><img src="r8_audi.jpg" alt="avtomobil" ></a></td>
+							<td>
+								Znamka: Audi<br>
+								Model: R8<br>
+								Letnik: 2009<br>
+								Lastnik: <a href="#">Janez Novak</a>
+							</td>
+							<td>14.2 </td>
+							<td>
+								9.8
+							</td>
+						</tr>
+						<tr>
+							<td><a href="izdelek.html"><img src="r8_audi.jpg" alt="avtomobil" ></a></td>
+							<td>
+								Znamka: Audi<br>
+								Model: R8<br>
+								Letnik: 2009<br>
+								Lastnik: <a href="#">Janez Novak</a>
+							</td>
+							<td>14.2 </td>
+							<td>
+								9.8
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</section>
+	</div>
+	<footer >
+		Avtor: Denis Fidel<br>
+		Kontakt: denis.fidel12@gmail.com
+	</footer>
+</body>
+</html>

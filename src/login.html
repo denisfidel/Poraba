@@ -1,41 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Poraba - login</title>
+	<title>Poraba - Registracija</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
+	<meta charset="utf-8">
 </head>
 <body>
 	<header>
-		<a href="index.html"><img src="logo-car.jpg" alt="LOGO" ></a>
-		<div class="prijava">
-			<button type="button" onclick="location.href='login.html'">Registriraj se</button>
-			<button type="button" onclick="location.href='geslo.html'">Pozabljeno geslo</button>
-			<button type="button" onclick="location.href='#popup'">Prijava</button>	
-		</div>				
+		<a href="index.html"><img src="logo-car.jpg" alt="LOGO" ></a>				
 	</header>
 	
 		<nav >
 			<ul>
 				<li onclick="location='index.html'">Domov</li>
-				<li onclick="location='calc.html'">Kalkulator</li>
 				<li onclick="location='map.html'">Zemljevid</li>
 				<li onclick="location='about.html'">O nas</li>
 			</ul>
 		</nav>
-	<div class="centered-content">
-		<form method="post" autocomplete="on">
-			<fieldset id="login_form">
+	<div class="centered-content" id="main">
+		<form method="post" autocomplete="on" id="login_form">
+			<fieldset >
 			    <legend >Registracija</legend>
 			    <label><input type="text" name="ime" placeholder="Ime"></label>
 			    <label><input type="text" name="priimek" placeholder="Priimek"></label>
 			    <label><input type="text" name="datum_rojstva" placeholder="Datum rojstva"></label>
+			    <label><input type="tel" name="telefon" placeholder="Telefonska številka"></label>
 			    <label><input type="email" placeholder="e-mail" required></label>
 			    <label><input type="password" name="geslo" placeholder="Geslo" required></label>
-			    <label><input type="password" name="geslo" placeholder="Ponovi geslo" required></label>
-			    <label>Spol: 
-			    	<input type="radio" name="spol" value="moski">Moški
-					<input type="radio" name="spol" value="zenski">Ženski
-				</label>			    
+			    <label><input type="password" name="geslo" placeholder="Ponovi geslo" required></label>			    
 			    <label><input type="Submit" name="Potrdi registracijo" ></label>
 			</fieldset>
 		</form>
