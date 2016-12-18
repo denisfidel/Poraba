@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Poraba - Domov</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<meta charset="utf-8">
+	<script type="text/javascript" src="javascript.js" defer></script>
+</head>
+<body>
+	<header>
+		<a href="index.html"><img src="logo-car.jpg" alt="LOGO" ></a>
+		<div class="prijava">
+			<button onclick="location.href='login.html'">Registriraj se</button>
+			<button onclick="location.href='#popup'">Prijava</button>
+			<button onclick="location.href='profile.html'">Moj profil</button>
+		</div>				
+	</header>
+	
+	<nav>
+		<ul>
+			<li onclick="location='index.html'">Domov</li>
+			<li onclick="location='map.html'">Zemljevid</li>
+			<li onclick="location='about.html'">O nas</li>
+		</ul>
+		
+	</nav>
+	<div class="centered-content" id="main">
+		<div id="popup">
+				<p>Prijava</p>
+				<form>
+					<div>
+						<label>E-mail: <input type="email" name="email" placeholder="primer@domena.si"/></label>
+					</div>
+					<div>
+						<label>Geslo: <input type="password" name="password"  size="15" maxlength="30" /></label>
+					</div>
+					<div>
+						<label><input type="submit" name="potrdi_prijavo" value="Vpiši me" /></label>
+						<button onclick="location.href='#'">Prekliči</button>
+						<button id="poz_geslo">Pozabljeno geslo</button>
+					</div>
+				</form>			
+		</div> 
+		<aside>
+				<form method="post" class="iskanje">
+					<fieldset>
+						<legend>Poišči želeno vozilo</legend>
+						<label><input type="search" name="search" placeholder="Iskanje.."></label>
+					</fieldset>
+				</form>
+				<form method="post" autocomplete="on" class="consump_calc" id="izrac1" >
+					<fieldset >
+					    <legend >Kalkulator povprečne porabe</legend>
+					    <label><input type="number" name="kolicina_goriva" placeholder="Gorivo (L)" min="0"></label>
+					    <label><input type="number" name="kilometri" placeholder="Prevoženi kilometri" min="0"></label>					    
+					    <label><input type="submit" name="izracunaj" value="Izračunaj" ></label>
+					    
+					</fieldset>
+				</form>
+				<div id="rezultat_iskanja1"></div>
+				<form method="post" autocomplete="on" class="costs_calc">
+					<fieldset >
+					    <legend >Kalkulator stroškov</legend>
+					    <label><input type="number" name="tmp_poraba" placeholder="Poraba [L/100km]" min="0"></label>				    
+					    <label><input type="Submit" name="izracunaj" value="Izračunaj" id="izrac2"></label>
+					    <div class="rezultat_iskanja2"></div>
+					</fieldset>
+				</form>
+		</aside>
+		
+		<div class="zapisi">
+			<!--<h1>Najbolje ocenjeni</h1>-->
+			<table>
+				<caption>Najbolje ocenjeni	</caption>
+				<thead>
+					<tr>
+						<th></th>
+						<th>Podatki</th>
+						<th>Poraba<br>(L/100km)</th>
+						<th>Ocena<br>[1,..,10]</th>
+					</tr>
+				</thead>
+				<tfoot>
+					<tr>
+						<td></td>
+						<td>
+							<ul id="paging">
+								<li><a href="#">Prejšnja</a></li>
+								<li><a href="#">Naslednja</a></li>
+							</ul>
+						</td>
+						<td></td>
+						<td></td>
+					</tr>
+				</tfoot>
+				<tbody>
+					<tr>
+						<td><a href="izdelek.html"><img src="r8_audi.jpg" alt="avtomobil" ></a></td>
+						<td>
+							Znamka: Audi<br>
+							Model: R8<br>
+							Letnik: 2009<br>
+							Lastnik: <a href="#">Janez Novak</a>
+						</td>
+						<td>14.2 </td>
+						<td>
+							9.8
+						</td>
+					</tr>
+					<tr>
+						<td><img src="porsche-911.jpg" alt="avtomobil" ></td>
+						<td>
+							Znamka: Porsche<br>
+							Model: 911 GT3 RS<br>
+							Letnik: 2011<br>
+							Lastnik: <a href="#">Andrej Dragič</a>
+						</td>
+						<td>12.7 </td>
+						<td>
+							9.8
+						</td>
+					</tr>
+					<tr>
+						<td><a href="izdelek.html"><img src="r8_audi.jpg" alt="avtomobil" ></a></td>
+						<td>
+							Znamka: Audi<br>
+							Model: R8<br>
+							Letnik: 2009<br>
+							Lastnik: <a href="#">Janez Novak</a>
+						</td>
+						<td>14.2 </td>
+						<td>
+							9.8
+						</td>
+					</tr>
+					<tr>
+						<td><img src="porsche-911.jpg" alt="avtomobil" ></td>
+						<td>
+							Znamka: Porsche<br>
+							Model: 911 GT3 RS<br>
+							Letnik: 2011<br>
+							Lastnik: <a href="#">Andrej Dragič</a>
+						</td>
+						<td>12.7 </td>
+						<td>
+							9.8
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<footer >
+		Avtor: Denis Fidel<br>
+		Kontakt: denis.fidel12@gmail.com
+
+	</footer>
+
+</body>
+</html>
