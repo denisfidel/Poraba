@@ -1,0 +1,56 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Zemljevid</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'por/style.css' %}">
+	<meta charset="utf-8">
+	<script type="text/javascript" src="javascript.js" defer></script>
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD1NO0agNZxIIblBskj_VbG0xQa08mGCfo&callback=initMap">
+	</script>
+</head>
+<body>
+	<header>
+		<a href="index.html"><img src="logo-car.jpg" alt="LOGO" ></a>
+		<div class="prijava">
+			<button onclick="location.href='{% url 'register' %}'">Registriraj se</button>
+			<button onclick="location.href='#popup'">Prijava</button>
+			<button onclick="location.href='{% url 'profile' %}'">Moj profil</button>
+		</div>				
+	</header>
+	
+	<nav>
+		<ul>
+			<li onclick="location='{% url 'index' %}'">Domov</li>
+			<li onclick="location='{% url 'map' %}'">Zemljevid</li>
+			<li onclick="location='{% url 'about' %}'">O nas</li>
+		</ul>
+	</nav>
+
+	<div class="centered-content" id="main">
+		<div id="popup">
+				<p>Prijava</p>
+				<form>
+					<div>
+						<label>E-mail: <input type="email" name="email" placeholder="primer@domena.si"/></label>
+					</div>
+					<div>
+						<label>Geslo: <input type="password" name="password"  size="15" maxlength="30" /></label>
+					</div>
+					<div>
+						<label><input type="submit" name="potrdi_prijavo" value="Vpiši me" /></label>
+						<button onclick="location.href='#'">Prekliči</button>
+						<button id="poz_geslo">Pozabljeno geslo</button>
+					</div>
+				</form>			
+		</div>
+		<div id="map"></div>
+    </div>
+	<footer >
+		Avtor: Denis Fidel<br>
+		Kontakt: denis.fidel12@gmail.com
+
+	</footer>
+</body>
+</html>

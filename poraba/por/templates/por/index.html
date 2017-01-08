@@ -1,33 +1,35 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Poraba - Domov</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="{% static 'por/style.css' %}">
 	<meta charset="utf-8">
 	<script type="text/javascript" src="javascript.js" defer></script>
 </head>
 <body>
 	<header>
-		<a href="index.html"><img src="logo-car.jpg" alt="LOGO" ></a>
+		<a href="index.html"><img src="{% static 'por/logo-car.jpg' %}" alt="LOGO" ></a>
 		<div class="prijava">
-			<button onclick="location.href='login.html'">Registriraj se</button>
+			<button onclick="location.href='{% url 'register' %}'">Registriraj se</button>
 			<button onclick="location.href='#popup'">Prijava</button>
-			<button onclick="location.href='profile.html'">Moj profil</button>
+			<button onclick="location.href='{% url 'profile' %}'">Moj profil</button>
 		</div>				
 	</header>
 	
 	<nav>
 		<ul>
-			<li onclick="location='index.html'">Domov</li>
-			<li onclick="location='map.html'">Zemljevid</li>
-			<li onclick="location='about.html'">O nas</li>
+			<li onclick="location='{% url 'index' %}'">Domov</li>
+			<li onclick="location='{% url 'map' %}'">Zemljevid</li>
+			<li onclick="location='{% url 'about' %}'">O nas</li>
 		</ul>
 		
 	</nav>
 	<div class="centered-content" id="main">
 		<div id="popup">
 				<p>Prijava</p>
-				<form>
+				<form method="POST">
 					<div>
 						<label>E-mail: <input type="email" name="email" placeholder="primer@domena.si"/></label>
 					</div>
