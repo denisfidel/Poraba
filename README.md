@@ -10,5 +10,4 @@ Ciljna publika: Vsi uporabniki avtomobilov, ki želijo spremljati bolj realisti�
 Problemi, ki jih je še potrebno rešiti:<br>
 <ul>
   <li>izračun porabe/stroškov</li>
-  <li>izris grafa</li>
 </ul>  
