@@ -24,7 +24,6 @@ class Car(models.Model):
 	year=models.IntegerField(null=True, blank=True)
 	kilometers=models.IntegerField(null=True, blank=True)
 	rotation_speed=models.IntegerField(blank=True, null=True)
-	grade=ArrayField(models.IntegerField(), blank=True, null=True)
 	image=models.ImageField(upload_to='cars/', null=True, blank=True)
 	
 class Comments(models.Model):

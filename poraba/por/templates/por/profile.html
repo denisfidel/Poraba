@@ -68,7 +68,15 @@
 			<tbody>
 				{% for c in car_list %}
 				<tr>
-					<td><a href="izdelek.html"><img src="r8_audi.jpg" alt="avtomobil" ></a></td>
+					<td>
+						<a href="{% url 'izdelek' c.id %}">
+							{% if c.image.url != Null %}
+								<img src="{{ c.image.url }}" alt="avtomobil" >
+							{% else %}
+								<img src="#" alt="avtomobil" >
+							{% endif %}
+						</a>
+					</td>
 					<td>
 						Znamka: {{c.brand}}<br>
 						Model: {{c.car_model}}<br>

@@ -86,7 +86,12 @@
 						Znamka: {{ car.brand }}<br>
 						Model: {{ car.car_model }}<br>
 						Letnik: {{ car.year }} <br>
-						Lastnik: <a href="{% url 'profile' car.owner.id %}">{{ car.owner.user.first_name }} {{ car.owner.user.last_name }}</a>
+						Lastnik: 
+						{% if car.owner %}
+							<a href="{% url 'profile' car.owner.id %}">{{ car.owner.user.first_name }} {{ car.owner.user.last_name }}</a>
+						{% else %}
+							<a href="#">{{ car.owner.user.first_name }} {{ car.owner.user.last_name }}</a>
+						{% endif %}
 					</td>
 					<td> {{ car.fuel_consumption }} </td>
 				</tr>
@@ -107,7 +112,12 @@
 							Znamka: {{ res.brand }}<br>
 							Model: {{ res.car_model }}<br>
 							Letnik: {{ res.year }} <br>
-							Lastnik: <a href="{% url 'profile' res.owner.id %}">{{ res.owner.user.first_name }} {{ res.owner.user.last_name }}</a>
+							Lastnik: 
+							{% if res.owner %}
+								<a href="{% url 'profile' res.owner.id %}">{{ res.owner.user.first_name }} {{ res.owner.user.last_name }}</a>
+							{% else %}
+								<a href="#">{{ res.owner.user.first_name }} {{ res.owner.user.last_name }}</a>
+							{% endif %}
 						</td>
 						<td> {{ res.fuel_consumption }} </td>
 					</tr>

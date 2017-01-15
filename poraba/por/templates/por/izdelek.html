@@ -21,7 +21,12 @@
 					Letnik: {{ car.year}}<br>
 					Prevoženi kilometri [km]: {{ car.kilometers }}<br>
 					Povprečni obrati[RPM]: {{ car.rotation_speed }}<br>
-					Lastnik: <a href="{% url 'profile' car.owner.id %}">{{ car.owner.user.first_name }} {{ car.owner.user.last_name }}</a>
+					Lastnik: 
+					{% if car.owner %}
+						<a href="{% url 'profile' car.owner.id %}">{{ car.owner.user.first_name }} {{ car.owner.user.last_name }}</a>
+					{% else %}
+						<a href="#">{{ car.owner.user.first_name }} {{ car.owner.user.last_name }}</a>
+					{% endif %}
 				</p>
 			</div>
 		</div>
@@ -59,7 +64,12 @@
 				<tbody>
 					{% for com in comments %}
 					<tr>
-						<td><a href="profile.html"><img src="profile.png" alt="uporabnik" ></a></td>
+						<td>
+						{% if com.author %}
+							<a href="{% url 'profile' com.author.id %}"><img src="profile.png" alt="uporabnik" ></a></td>
+						{% else %}
+							<a href="#"><img src="profile.png" alt="uporabnik" ></a></td>
+						{% endif %}
 						<td>
 							{{ com.comment }} 
 						</td>

@@ -13,7 +13,12 @@
 		<a href="{% url 'index' %}"><img src="{% static 'por/logo-car.jpg' %}" alt="LOGO" ></a>
 		<div class="prijava">
 			{% if user.is_authenticated %}
-				Vpisani ste kot <a href="{% url 'profile' user.profile.id %}"> {{ user }}</a>
+				Vpisani ste kot 
+				{% if user.profile %}
+					<a href="{% url 'profile' user.profile.id %}"> {{ user }}</a>
+				{% else %}
+					<a href="#"> {{ user }}</a>
+				{% endif %}
 				<a href="{% url 'logout' %}">Izpiši me</a>
 			{% else %}
 				<button onclick="location.href='{% url 'register' %}'">Registriraj se</button>
