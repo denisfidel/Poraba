@@ -1,162 +1,119 @@
-{% load static %}
-
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Poraba - Domov</title>
-	<link rel="stylesheet" type="text/css" href="{% static 'por/style.css' %}">
-	<meta charset="utf-8">
-	<script type="text/javascript" src="javascript.js" defer></script>
-</head>
-<body>
-	<header>
-		<a href="index.html"><img src="{% static 'por/logo-car.jpg' %}" alt="LOGO" ></a>
-		<div class="prijava">
-			<button onclick="location.href='{% url 'register' %}'">Registriraj se</button>
-			<button onclick="location.href='#popup'">Prijava</button>
-			<button onclick="location.href='{% url 'profile' %}'">Moj profil</button>
-		</div>				
-	</header>
-	
-	<nav>
-		<ul>
-			<li onclick="location='{% url 'index' %}'">Domov</li>
-			<li onclick="location='{% url 'map' %}'">Zemljevid</li>
-			<li onclick="location='{% url 'about' %}'">O nas</li>
-		</ul>
+{% extends "por/base.html" %}
+{% block content %}
+<aside>
+	<form method="GET" class="iskanje" action=".">
+		<fieldset>
+			<legend>Poišči želeno vozilo</legend>
+			<label><input type="search" name="q" placeholder="Iskanje.."></label>
+			<input type="Submit" name="search_box" value="Išči.."></input>
+		</fieldset>
+	</form>
+	<form method="GET" autocomplete="on" class="consump_calc" id="izrac1" >
+		<fieldset >
+		    <legend >Kalkulator povprečne porabe</legend>
+		    <label><input type="number" name="kolicina_goriva" placeholder="Gorivo (L)" min="0"></label>
+		    <label><input type="number" name="kilometri" placeholder="Prevoženi kilometri" min="0"></label>					    
+		    <label><input type="submit" name="izracunaj" value="Izračunaj" ></label>
+		    <div class="rezultat_iskanja">
+				{% if avg_poraba %}
+					<p> Povprečna poraba: {{ avg_poraba }} [L/100km]
+				{% endif %}
+			</div>
+		</fieldset>
+	</form>
+	<div id="rezultat_iskanja1"></div>
+	<form method="GET" autocomplete="on" class="costs_calc">
+		<fieldset >
+		    <legend >Kalkulator stroškov</legend>
+		    <label><input type="number" name="tmp_poraba" placeholder="Poraba [L/100km]" min="0" step="0.1"></label>
+			<label><input type="number" name="st_kilometrov" placeholder="Željeni kilometri [km]" min="0"></label>
+		    <label><input type="Submit" name="izracunaj" value="Izračunaj" id="izrac2"></label>
+		    <div class="rezultat_iskanja2">
+				{% if stroski2 %}
+					<p> Strošek: {{ stroski2 }}€
+				{% endif %}
+			</div>
+		</fieldset>
+	</form>
+</aside>
 		
-	</nav>
-	<div class="centered-content" id="main">
-		<div id="popup">
-				<p>Prijava</p>
-				<form method="POST">
-					<div>
-						<label>E-mail: <input type="email" name="email" placeholder="primer@domena.si"/></label>
-					</div>
-					<div>
-						<label>Geslo: <input type="password" name="password"  size="15" maxlength="30" /></label>
-					</div>
-					<div>
-						<label><input type="submit" name="potrdi_prijavo" value="Vpiši me" /></label>
-						<button onclick="location.href='#'">Prekliči</button>
-						<button id="poz_geslo">Pozabljeno geslo</button>
-					</div>
-				</form>			
-		</div> 
-		<aside>
-				<form method="post" class="iskanje">
-					<fieldset>
-						<legend>Poišči želeno vozilo</legend>
-						<label><input type="search" name="search" placeholder="Iskanje.."></label>
-					</fieldset>
-				</form>
-				<form method="post" autocomplete="on" class="consump_calc" id="izrac1" >
-					<fieldset >
-					    <legend >Kalkulator povprečne porabe</legend>
-					    <label><input type="number" name="kolicina_goriva" placeholder="Gorivo (L)" min="0"></label>
-					    <label><input type="number" name="kilometri" placeholder="Prevoženi kilometri" min="0"></label>					    
-					    <label><input type="submit" name="izracunaj" value="Izračunaj" ></label>
-					    
-					</fieldset>
-				</form>
-				<div id="rezultat_iskanja1"></div>
-				<form method="post" autocomplete="on" class="costs_calc">
-					<fieldset >
-					    <legend >Kalkulator stroškov</legend>
-					    <label><input type="number" name="tmp_poraba" placeholder="Poraba [L/100km]" min="0"></label>				    
-					    <label><input type="Submit" name="izracunaj" value="Izračunaj" id="izrac2"></label>
-					    <div class="rezultat_iskanja2"></div>
-					</fieldset>
-				</form>
-		</aside>
-		
-		<div class="zapisi">
-			<!--<h1>Najbolje ocenjeni</h1>-->
-			<table>
-				<caption>Najbolje ocenjeni	</caption>
-				<thead>
-					<tr>
-						<th></th>
-						<th>Podatki</th>
-						<th>Poraba<br>(L/100km)</th>
-						<th>Ocena<br>[1,..,10]</th>
-					</tr>
-				</thead>
-				<tfoot>
-					<tr>
-						<td></td>
-						<td>
-							<ul id="paging">
-								<li><a href="#">Prejšnja</a></li>
-								<li><a href="#">Naslednja</a></li>
-							</ul>
-						</td>
-						<td></td>
-						<td></td>
-					</tr>
-				</tfoot>
-				<tbody>
-					<tr>
-						<td><a href="izdelek.html"><img src="r8_audi.jpg" alt="avtomobil" ></a></td>
-						<td>
-							Znamka: Audi<br>
-							Model: R8<br>
-							Letnik: 2009<br>
-							Lastnik: <a href="#">Janez Novak</a>
-						</td>
-						<td>14.2 </td>
-						<td>
-							9.8
-						</td>
-					</tr>
-					<tr>
-						<td><img src="porsche-911.jpg" alt="avtomobil" ></td>
-						<td>
-							Znamka: Porsche<br>
-							Model: 911 GT3 RS<br>
-							Letnik: 2011<br>
-							Lastnik: <a href="#">Andrej Dragič</a>
-						</td>
-						<td>12.7 </td>
-						<td>
-							9.8
-						</td>
-					</tr>
-					<tr>
-						<td><a href="izdelek.html"><img src="r8_audi.jpg" alt="avtomobil" ></a></td>
-						<td>
-							Znamka: Audi<br>
-							Model: R8<br>
-							Letnik: 2009<br>
-							Lastnik: <a href="#">Janez Novak</a>
-						</td>
-						<td>14.2 </td>
-						<td>
-							9.8
-						</td>
-					</tr>
-					<tr>
-						<td><img src="porsche-911.jpg" alt="avtomobil" ></td>
-						<td>
-							Znamka: Porsche<br>
-							Model: 911 GT3 RS<br>
-							Letnik: 2011<br>
-							Lastnik: <a href="#">Andrej Dragič</a>
-						</td>
-						<td>12.7 </td>
-						<td>
-							9.8
-						</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
-	</div>
-	<footer >
-		Avtor: Denis Fidel<br>
-		Kontakt: denis.fidel12@gmail.com
+<div class="zapisi"> 
+	<table>
+		<caption>Seznam avtomobilov</caption>
+		<thead>
+			<tr>
+				<th></th>
+				<th>Podatki</th>
+				<th>Poraba<br>(L/100km)</th>
+			</tr>
+		</thead>
+		<tfoot>
+			<tr>
+				<td></td>
+				<td>
+					<ul id="paging">
+						{% if not results %}
+							{% if cars.has_previous %}
+								<li><a href="?page={{ cars.previous_page_number }}">Prejšnja</a></li>
+							{% endif %}
+							<span class="current">
+								[Stran {{ cars.number }} od {{ cars.paginator.num_pages }}]
+							</span>
 
-	</footer>
-
-</body>
-</html>
+							{% if cars.has_next %}
+								<li><a href="?page={{ cars.next_page_number }}">Naslednja</a></li>
+							{% endif %}
+						{% endif %}
+					</ul>
+				</td>
+				<td></td>
+			</tr>
+		</tfoot>
+		<tbody>
+			{% if not results %}
+				{% for car in cars %}
+				<tr>
+					<td>
+						<a href="{% url 'izdelek' car.id %}">
+							{% if car.image.url != Null %}
+								<img src="{{ car.image.url }}" alt="avtomobil" >
+							{% else %}
+								<img src="#" alt="avtomobil" >
+							{% endif %}
+						</a>				
+					</td>
+					<td>
+						Znamka: {{ car.brand }}<br>
+						Model: {{ car.car_model }}<br>
+						Letnik: {{ car.year }} <br>
+						Lastnik: <a href="{% url 'profile' car.owner.id %}">{{ car.owner.user.first_name }} {{ car.owner.user.last_name }}</a>
+					</td>
+					<td> {{ car.fuel_consumption }} </td>
+				</tr>
+				{% endfor %}
+			{% else %}
+				{% for res in results %}
+					<tr>
+						<td>
+							<a href="{% url 'izdelek' res.id %}">
+								{% if res.image.url != Null %}
+									<img src="{{ res.image.url }}" alt="avtomobil" >
+								{% else %}
+									<img src="#" alt="avtomobil" >
+								{% endif %}
+							</a>				
+						</td>
+						<td>
+							Znamka: {{ res.brand }}<br>
+							Model: {{ res.car_model }}<br>
+							Letnik: {{ res.year }} <br>
+							Lastnik: <a href="{% url 'profile' res.owner.id %}">{{ res.owner.user.first_name }} {{ res.owner.user.last_name }}</a>
+						</td>
+						<td> {{ res.fuel_consumption }} </td>
+					</tr>
+				{% endfor %}
+			{% endif %}
+		</tbody>
+	</table>
+</div>
+{% endblock %}

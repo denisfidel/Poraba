@@ -1,179 +1,85 @@
-{% load static %}
+{% extends "por/base.html" %}
+{% block content %}
 
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Poraba - Izdelek</title>
-	<link rel="stylesheet" type="text/css" href="{% static 'por/style.css' %}">
-	<meta charset="utf-8">
-</head>
-<body>
-	<header>
-		<a href="index.html"><img src="logo-car.jpg" alt="LOGO" ></a>
-		<div class="prijava">
-			<button onclick="location.href='{% url 'register' %}'">Registriraj se</button>
-			<button onclick="location.href='#popup'">Prijava</button>
-			<button onclick="location.href='{% url 'profile' %}'">Moj profil</button>
-		</div>				
-	</header>
+<section style="width: 100%" class="izdelek">
+	<h1>{{ car.brand }} {{ car.car_model }}</h1>
+	<article >
+		<div class="izdelek_podatki">
+			<div id="izd1">
+				{% if car.image.url != Null %}
+					<img src="{{ car.image.url }}" alt="avtomobil" id="glavna">
+				{% else %}
+					<img src="#" alt="avtomobil" id="glavna">
+				{% endif %}
+			</div>
+			<div id="izd2">
+				<h2 >Podatki</h2>
+				<p>
+					
+					Znamka: {{ car.brand }}<br>
+					Model: {{ car.car_model }}<br>
+					Letnik: {{ car.year}}<br>
+					Prevoženi kilometri [km]: {{ car.kilometers }}<br>
+					Povprečni obrati[RPM]: {{ car.rotation_speed }}<br>
+					Lastnik: <a href="{% url 'profile' car.owner.id %}">{{ car.owner.user.first_name }} {{ car.owner.user.last_name }}</a>
+				</p>
+			</div>
+		</div>
+		<div class="comments">
+			{% if comments %}
+			<table>
+				<caption>Komentarji</caption>
+				<thead>
+					<tr>
+						<th></th>						
+						<th> Komentar</th>
+						<th>Ime Priimek</th>
+					</tr>
+				</thead>
+				<tfoot>
+					<tr>
+						<td></td>
+						<td>
+							<ul id="paging">
+								{% if comments.has_previous %}
+									<li><a href="?page={{ comments.previous_page_number }}">Prejšnja</a></li>
+								{% endif %}
+								<span class="current">
+									[Stran {{ comments.number }} od {{ comments.paginator.num_pages }}]
+								</span>
 
-	<nav>
-		<ul>
-			<li onclick="location='{% url 'index' %}'">Domov</li>
-			<li onclick="location='{% url 'map' %}'">Zemljevid</li>
-			<li onclick="location='{% url 'about' %}'">O nas</li>
-		</ul>		
-	</nav>
-
-	<div class="centered-content" id="main">
-		<div id="popup">
-				<p>Prijava</p>
-				<form>
-					<div>
-						<label>E-mail: <input type="email" name="email" placeholder="primer@domena.si"/></label>
-					</div>
-					<div>
-						<label>Geslo: <input type="password" name="password"  size="15" maxlength="30" /></label>
-					</div>
-					<div>
-						<label><input type="submit" name="potrdi_prijavo" value="Vpiši me" /></label>
-						<button onclick="location.href='#'">Prekliči</button>
-						<button id="poz_geslo">Pozabljeno geslo</button>
-					</div>
-				</form>			
-		</div> 
-		<section style="width: 100%" class="izdelek">
-			<h1>Audi R8</h1>
-			<article >
-				<div class="izdelek_podatki">
-					<div id="izd1">	
-						<img src="r8_audi.jpg" alt="avtomobil" id="glavna">
-					</div>
-					<div id="izd2">
-						<h2 >Podatki</h2>
-						<p>
-							Znamka: Audi<br>
-							Model: R8<br>
-							Letnik: 2009<br>
-							Prevoženi kilometri: 55000<br>
-							Povprečni obrati: 
-							<select>
-								<option value="1500">1500</option>
-								<option value="2000">2000</option>
-								<option value="2500">2500</option>
-								<option value="3000">3000</option>
-								<option value="3500">3500</option>
-								<option value="4000">4000</option>
-								<option value="4500">4500</option>						
-								<option value="5000">5000</option>						
-								<option value="5500">5500</option>
-								<option value="6000">6000</option>
-								<option value="6500">6500</option>
-								<option value="7000">7000</option>
-								<option value="7500">7500</option>
-								<option value="8000">8000</option>
-							</select>
-
-						</p>
-					</div>
-					<div id="izd3">
-						<h2>Ocena:</h2>
-						<p>
-							9.8
-						</p>
-						<form id="moja_ocena" method="POST">
-							Moja ocena:<br>
-							<select>
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-								<option value="6">6</option>
-								<option value="7">7</option>						
-								<option value="8">8</option>						
-								<option value="9">9</option>
-								<option value="10">10</option>
-							</select>
-						</form>
-					</div>
-				</div>
-				<div class="comments">
-					<table>
-						<caption>Komentarji</caption>
-						<thead>
-							<tr>
-								<th></th>
-								<th>Komentar</th>
-							</tr>
-						</thead>
-						<tfoot>
-							<tr>
-								<td></td>
-								<td>
-									<ul id="paging">
-										<li><a href="#">Prejšnja</a></li>
-										<li><a href="#">Naslednja</a></li>
-									</ul>
-								</td>
-							</tr>
-						</tfoot>
-						<tbody>
-							<tr>
-								<td><a href="profile.html"><img src="profile.png" alt="uporabnik" ></a></td>
-								<td>
-									Zelo lepo! Pohvala za porabo!
-								</td>
-							</tr>
-							<tr>
-								<td><a href="profile.html"><img src="profile.png" alt="uporabnik" ></a></td>
-								<td>
-									Zelo lepo! Pohvala za porabo!
-								</td>
-							</tr>
-							<tr>
-								<td><a href="profile.html"><img src="profile.png" alt="uporabnik" ></a></td>
-								<td>
-									Zelo lepo! Pohvala za porabo!
-								</td>
-							</tr>
-							
-						</tbody>
-					</table>
-				</div>
-				<!--<div class="comments">
-					<h2>Komentarji</h2>
-					<div class="comment">
-						<h3>Uprabnik</h3>
-						<p>
-							Zelo lepo!
-						</p>
-					</div>
-					<div class="comment">
-						<h3>Uprabnik</h3>
-						<p>
-							Zelo lepo!
-						</p>
-					</div>
-					<div class="comment">
-						<h3>Uprabnik</h3>
-						<p>
-							Zelo lepo!
-						</p>
-					</div>
-					<form method="POST">
-						<label><textarea></textarea>
-						</label>
-						<input type="submit" name="komentiraj" value="Dodaj komentar">
-					</form>
-				</div>
-				-->
-			</article>
-		</section>
-	</div>
-	<footer >
-		Avtor: Denis Fidel<br>
-		Kontakt: denis.fidel12@gmail.com
-	</footer>
-</body>
-</html>
+								{% if comments.has_next %}
+									<li><a href="?page={{ comments.next_page_number }}">Naslednja</a></li>
+								{% endif %}
+							</ul>
+						</td>
+						<td></td>
+					</tr>
+				</tfoot>
+				<tbody>
+					{% for com in comments %}
+					<tr>
+						<td><a href="profile.html"><img src="profile.png" alt="uporabnik" ></a></td>
+						<td>
+							{{ com.comment }} 
+						</td>
+						<td>{{com.author.user.first_name}} {{com.author.user.last_name}}</td>
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+			{% endif %}
+			{% if user.is_authenticated %}
+			<form method="POST" autocomplete="on" id="login_form" >
+				<fieldset >
+					<legend >Dodaj komentar</legend>
+					{% csrf_token %}
+					{{ form.as_table }}
+					<input type="Submit" name="Komentiraj" >
+				</fieldset>
+			</form>
+			{% endif %}
+		</div>
+	</article>
+</section>
+{% endblock %}

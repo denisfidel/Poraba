@@ -1,0 +1,58 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Poraba - Domov</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'por/style.css' %}">
+	<meta charset="utf-8">
+	<script type="text/javascript" src="{% static 'por/javascript.js' %}" defer></script>
+</head>
+<body>
+	<header>
+		<a href="{% url 'index' %}"><img src="{% static 'por/logo-car.jpg' %}" alt="LOGO" ></a>
+		<div class="prijava">
+			{% if user.is_authenticated %}
+				Vpisani ste kot <a href="{% url 'profile' user.profile.id %}"> {{ user }}</a>
+				<a href="{% url 'logout' %}">Izpiši me</a>
+			{% else %}
+				<button onclick="location.href='{% url 'register' %}'">Registriraj se</button>
+				<button onclick="location.href='#popup'">Prijava</button>
+			{% endif %}
+		</div>
+		
+	</header>
+	
+	<nav>
+		<ul>
+			<li onclick="location='{% url 'index' %}'">Domov</li>
+			<li onclick="location='{% url 'map' %}'">Zemljevid</li>
+			<li onclick="location='{% url 'about' %}'">O nas</li>
+		</ul>
+		
+	</nav>
+	<div class="centered-content" id="main">
+		{% if not user.is_authenticated %}
+		<div id="popup">
+				<p>Prijava</p>
+				<form method="POST">
+					{% csrf_token %}
+					{{ loginForm.as_table }}
+					<div>
+						<label><input type="submit" name="potrdi_prijavo" value="Vpiši me" /></label>
+						<button onclick="location.href='#'">Prekliči</button>
+					</div>
+				</form>			
+		</div>
+		{% endif %}
+{% block content %}
+{% endblock %}
+	</div>
+	<footer >
+		Avtor: Denis Fidel<br>
+		Kontakt: denis.fidel12@gmail.com
+
+	</footer>
+
+</body>
+</html>

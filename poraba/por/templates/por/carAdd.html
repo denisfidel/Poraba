@@ -1,0 +1,12 @@
+{% extends "por/base.html" %}
+
+{% block content %}
+	<form method="post" autocomplete="on" id="login_form" enctype='multipart/form-data'>
+		<fieldset >
+			<legend >Dodajanje vozila</legend>
+			{% csrf_token %}
+			{{ form.as_table }}	
+			<input type="Submit" name="Potrdi registracijo" >
+		</fieldset>
+	</form>
+{% endblock %}

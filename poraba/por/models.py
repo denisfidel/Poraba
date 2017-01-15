@@ -13,7 +13,7 @@ from datetime import datetime
 
 class Profile(models.Model):
 	user=models.OneToOneField(User, on_delete=models.CASCADE)
-	st_vozil=models.IntegerField()
+	pic=models.ImageField(upload_to='profiles/', null=True, blank=True)
 	
 
 class Car(models.Model):
@@ -21,12 +21,15 @@ class Car(models.Model):
 	fuel_consumption=models.DecimalField(max_digits=3, decimal_places=1)
 	brand=models.CharField(max_length=20)
 	car_model=models.CharField(max_length=20)
-	year=models.IntegerField()
-	rotation_speed=models.IntegerField()
-	grade=ArrayField(models.IntegerField())
+	year=models.IntegerField(null=True, blank=True)
+	kilometers=models.IntegerField(null=True, blank=True)
+	rotation_speed=models.IntegerField(blank=True, null=True)
+	grade=ArrayField(models.IntegerField(), blank=True, null=True)
+	image=models.ImageField(upload_to='cars/', null=True, blank=True)
 	
 class Comments(models.Model):
 	comment=models.TextField()
-	author=models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+	author=models.ForeignKey(Profile, on_delete=models.SET_NULL, null=True)
 	pub_date=models.DateTimeField( default=datetime.now )
 	car=models.ForeignKey( Car, on_delete=models.CASCADE )
+	
